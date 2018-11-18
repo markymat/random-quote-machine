@@ -37,20 +37,24 @@ let quotes = [
     author: "Yoda"
   },
 ]
+
 class Application extends React.Component {
   constructor(props) {
     super(props)
+	//drawed state with default number of quote at first time render
     this.state = {
       drawedNumber: 1
     }
     this.drawQuote = this.drawQuote.bind(this);
   }
+  //Method to generate new random number from quotes number range
   drawQuote() {
     this.setState({
       drawedNumber: Math.floor(Math.random() * quotes.length)
     })
   }
   render() {
+	// selectedQuotes with exact quote selected by random number from drawQuote method
     let selectedQuote = quotes[this.state.drawedNumber]
     return (
       <div clasName="container">
